@@ -56,9 +56,7 @@ class DBProvider {
     return res;
   }
 
-  //1.- Crear CRUD de mantenimiento para QRScanner
-  //2.- Despues de crear esta funcion, hacemos una prueba y
-  //vamos a ScannerProvider
+  //Forma corta de hacer insert a la tabla Scanner
   Future<int> insertScanner(ScannerModel oScanner) async {
     final db = await database;
     final response = await db.insert('Scanner', oScanner.toJson());
@@ -66,12 +64,14 @@ class DBProvider {
     return response;
   }
 
-  //Despues de crear esta funcion vamos a ScannerProvider
+  //Retornamos toda la lista de nuestra Base de datos
   Future<List<ScannerModel>> getAllScanner() async {
     final db = await database;
     final response = await db.query("Scanner");
 
     print(response);
+    
+    //Lo obtenido de nuestra BD, lo estamos mapeando en nuestro modelo
     return response.isNotEmpty
         ? response.map((scanner) => ScannerModel.fromJson(scanner)).toList()
         : [];
