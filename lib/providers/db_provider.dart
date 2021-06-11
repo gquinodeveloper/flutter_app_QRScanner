@@ -24,8 +24,7 @@ class DBProvider {
     final path = join(documentsDirectory.path, "QRScanner.db");
     print(path);
 
-    //1.- Crear base de datos y tabla
-    //2.- Luego creamos el modelo de Scanner
+    //Creamos nuestra base de datos y tabla
     return openDatabase(
       path,
       version: 1,
