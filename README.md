@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-Pasos:
+Pasos:<br>
 1.- Abrir el proyecto en visual code <br>
 2.- Abrir terminal <br>
 3.- Ejecutar comando: flutter pub get
