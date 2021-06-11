@@ -10,6 +10,7 @@ import 'package:flutter_application_qrscanner/utils/utils.dart';
 class Scanners extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //Cuando el provider es llamado despues del build el 99.99% es no asignarte el listen
     final _scannerProvider = Provider.of<ScannerProvider>(context);
     final _scanners = _scannerProvider.scanners;
 
