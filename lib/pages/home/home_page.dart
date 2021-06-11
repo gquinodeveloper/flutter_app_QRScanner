@@ -16,6 +16,10 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.delete_outline),
             onPressed: () {
+              //Llamamos al metodo deleteAllScanner de la clase provider ScannerProvider 
+              //Cuando lo invocamos desde un boton, el 99.99% es importante poner el listen: false
+              //Si no le asignamos nada o esta en true, este puede caer en un ciclo infinito
+              //que bloqueara cierta acción
               Provider.of<ScannerProvider>(context, listen: false)
                   .deleteAllScanner();
             },
