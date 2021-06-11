@@ -11,24 +11,30 @@ class ScannerButton extends StatelessWidget {
     print("Dibujandoooo FloatingActionButton");
     return FloatingActionButton(
       onPressed: () async {
+        
+        //Usamos el package de scanner
         String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#3D8BEF',
           'Cancelar',
           false,
           ScanMode.QR,
         );
-
+        //Si cancelamos el scann, siempre nos retornara el valor. -1
+        
         if (barcodeScanRes == '-1') return;
         ScannerModel oScanner = ScannerModel(
           tipo: "http",
           valor: barcodeScanRes,
         );
-
+         
+        //Insertamos el registro
         final _scannerProvider =
             Provider.of<ScannerProvider>(context, listen: false);
         final response = await _scannerProvider.insertScanner(oScanner);
+        
+        //Al insertar mostramos un preview de la dirección url
+        final response = await _scannerProvider.insertScanner(oScanner);
         launchURL(url: response.valor);
-        print(response.id);
       },
       child: Icon(Icons.filter_center_focus_rounded),
     );
